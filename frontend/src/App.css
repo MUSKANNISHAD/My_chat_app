@@ -1,0 +1,26 @@
+* {
+    color: #ececec;
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    background-color: #212121;
+    display: flex;
+}.app {
+  display: flex;         /* ✅ row layout */
+  height: 100vh;         /* full screen height */
+  width: 100vw;          /* full screen width */
+  overflow: hidden;      /* prevent scrollbars from both */
+}
+
+.chatWindow {
+  flex: 1;               /* ✅ takes remaining space */
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+}
