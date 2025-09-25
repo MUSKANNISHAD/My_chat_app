@@ -9,10 +9,20 @@ function Sidebar() {
     const getAllThreads = async () => {
         try {
             const response = await fetch("http://localhost:8080/api/thread");
-            const res = await response.json();
-            const filteredData = res.map(thread => ({threadId: thread.threadId, title: thread.title}));
-            //console.log(filteredData);
-            setAllThreads(filteredData);
+           const res = await response.json();
+
+          if (Array.isArray(res)) {
+     const filteredData = res.map(thread => ({threadId: thread.threadId, title: thread.title}));
+     setAllThreads(filteredData);
+    } else {
+    console.error("Expected an array but got:", res);
+    setAllThreads([]); // or handle it another way
+       }
+
+
+            // const filteredData = res.map(thread => ({threadId: thread.threadId, title: thread.title}));
+            // //console.log(filteredData);
+            // setAllThreads(filteredData);
         } catch(err) {
             console.log(err);
         }

@@ -8,7 +8,7 @@ const router = express.Router();
 router.post("/test", async(req, res) => {
     try {
         const thread = new Thread({
-            threadId: "what is 2+2?",
+            threadId: "abc",
             title: "Testing New Thread2"
         });
 
@@ -88,9 +88,7 @@ router.post("/chat", async(req, res) => {
             thread.messages.push({role: "user", content: message});
         }
 
-
         const assistantReply = await getOpenAIAPIResponse(message);
-        console.log(assistantReply);
 
         thread.messages.push({role: "assistant", content: assistantReply});
         thread.updatedAt = new Date();
